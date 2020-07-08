@@ -1,0 +1,62 @@
+{
+  "title": "gRPC server",
+  "steps": [
+    {
+      "file": "packages/grpc/protos/posts.proto",
+      "line": 1,
+      "description": "We start of by building our **proto** file\n\nThis will serve as a contract between our gRPC server and client\n\nSee the [Language Guide](https://developers.google.com/protocol-buffers/docs/proto) for more details",
+      "title": "Define proto contact"
+    },
+    {
+      "file": "packages/grpc/protos/posts.proto",
+      "line": 42,
+      "description": "We define our methods here",
+      "title": "gRPC methods"
+    },
+    {
+      "file": "packages/grpc/protos/posts.proto",
+      "line": 21,
+      "description": "We also define our **message** types too, similar to a GQL schema\n",
+      "title": "Message types"
+    },
+    {
+      "file": "packages/grpc/src/proto/posts_pb.d.ts",
+      "line": 6,
+      "description": "Running the `yarn codegen` command will generate the following typescript definitions for use when building out our gRPC client and server",
+      "selection": {
+        "start": {
+          "line": 28,
+          "character": 5
+        },
+        "end": {
+          "line": 28,
+          "character": 6
+        }
+      },
+      "title": "Generating type definitions"
+    },
+    {
+      "file": "packages/grpc/src/services/posts.ts",
+      "line": 8,
+      "description": "Building a gRPC Server class, implementing the generated server interface.\n\nOur class has to have method for each one of the gRPC methods defined in the proto file and we are enforcing the generated type defintions for both the call and the callback.",
+      "selection": {
+        "start": {
+          "line": 8,
+          "character": 14
+        },
+        "end": {
+          "line": 8,
+          "character": 25
+        }
+      },
+      "title": "Building a gRPC server class"
+    },
+    {
+      "file": "packages/grpc/src/index.ts",
+      "line": 118,
+      "description": "Finally we add the service to our gRPC server instance and bind our server to a port before starting.\n\nRun the following commands to transpile and start the gRPC service\n```sh\nyarn build\nyarn start\n```",
+      "title": "Starting the server"
+    }
+  ],
+  "ref": "master"
+}
