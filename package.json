@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/gql",
+    "packages/grpc"
+  ],
+  "scripts": {
+    "build": "lerna run --parallel build",
+    "start": "lerna run --parallel start"
+  },
+  "dependencies": {
+    "lerna": "^3.22.1"
+  }
+}
