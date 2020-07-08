@@ -1,0 +1,42 @@
+{
+  "title": "GQL server as gRPC client",
+  "steps": [
+    {
+      "file": "packages/gql/package.json",
+      "line": 8,
+      "description": "We add the `post-grpc` package as a dependency so we can use the type definitions in the resolvers.",
+      "title": "gRPC service dependency"
+    },
+    {
+      "file": "packages/gql/src/definitions/posts.ts",
+      "line": 9,
+      "description": "We still take a schema first approach for our GQL service, but most of the schema mirrors the gRPC proto files",
+      "title": "Schema first approach"
+    },
+    {
+      "file": "packages/gql/src/generated/graphql.ts",
+      "line": 1,
+      "description": "Run the `yarn codegen` command will generate typescript definitions based on the schema",
+      "title": "Generating type definitions"
+    },
+    {
+      "file": "packages/gql/src/definitions/context.ts",
+      "line": 13,
+      "description": "We initialise the gRPC client in the GQL context so we can inject the client in to the resolvers.",
+      "title": "Inject gRPC client"
+    },
+    {
+      "file": "packages/gql/src/definitions/posts.ts",
+      "line": 6,
+      "description": "We can now import generated type definitions from the `posts-grpc` service, GQL schema and the gRPC client in the `Context`.\n\nThis will ensure complete E2E type security in our resolver methods.",
+      "title": "Import type definitions for resolvers"
+    },
+    {
+      "file": "packages/gql/src/index.ts",
+      "line": 33,
+      "description": "Finally we pull together our definition modules and context to build the Apollo Server instance and then bind to a port.\n\nRun the following commands to transpile and start the GQL service\n\n```sh\nyarn build\nyarn start\n```",
+      "title": "Bringing it all together"
+    }
+  ],
+  "ref": "master"
+}
