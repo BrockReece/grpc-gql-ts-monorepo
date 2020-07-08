@@ -1,0 +1,23 @@
+{
+    "name": "gql",
+    "version": "1.0.0",
+
+    "dependencies": {
+        "apollo-server": "^2.15.1",
+        "graphql": "^15.3.0",
+        "posts-grpc": "^1.0.0",
+        "typescript": "^3.7.5"
+    },
+
+    "devDependencies": {
+        "@graphql-codegen/cli": "1.16.3",
+        "@graphql-codegen/typescript": "1.16.3",
+        "@graphql-codegen/typescript-resolvers": "^1.16.3"
+    },
+
+    "scripts": {
+        "codegen": "graphql-codegen --config codegen.yml",
+        "build": "yarn run codegen && yarn run tsc",
+        "start": "nodemon ./dist/index.js"
+    }
+}
