@@ -1,5 +1,7 @@
 overwrite: true
-schema: "./src/index.ts"
+schema: 
+  - "./src/definitions/authors.ts"
+  - "./src/definitions/posts.ts"
 documents: null
 generates:
   src/generated/graphql.ts:
