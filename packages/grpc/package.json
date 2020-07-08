@@ -1,0 +1,18 @@
+{
+    "name": "posts-grpc",
+    "version": "1.0.0",
+
+    "dependencies": {
+        "grpc": "^1.24.3",
+        "grpc-tools": "^1.9.0",
+        "grpc_tools_node_protoc_ts": "^4.1.0",
+        "proto-parse": "^0.0.5",
+        "typescript": "^3.7.5"
+    },
+
+    "scripts": {
+        "codegen": "sh ./scripts/buildProtos.sh ./posts.proto ./src/proto",
+        "build": "yarn run codegen && yarn run tsc",
+        "start": "nodemon ./dist/index.js"
+    }
+}

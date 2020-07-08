@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package posts;
+
+import "google/protobuf/empty.proto";
+
+message PostArgs {
+  int32 id = 1; 
+}
+
+message AuthorArgs {
+  int32 id = 1; 
+}
+
+message PostInput {
+  string title = 1;
+  string body = 2;
+  int32 author_id = 3;
+}
+
+message Post {
+  int32 id = 1;
+  string title = 2;
+  string body = 3;
+  Author author = 4;
+}
+
+message PostList {
+  repeated Post posts = 1;
+}
+
+message Author {
+  int32 id = 1;
+  string name = 2;
+}
+
+message Authors {
+  repeated Author authors = 1;
+}
+
+service Posts {
+  rpc GetPosts(google.protobuf.Empty) returns (PostList) {};
+  rpc GetPostById(PostArgs) returns (Post) {};
+  rpc GetAuthors(google.protobuf.Empty) returns (Authors) {};
+  rpc GetPostsByAuthor(AuthorArgs) returns (PostList) {};
+  rpc AddPost(PostInput) returns (Post) {};
+}
