@@ -1,7 +1,7 @@
 import grpc from 'grpc';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { Post, PostList, PostInput, Author, Authors, PostArgs, AuthorArgs } from '../proto/posts_pb';
-import { IPostsServer, PostsService } from '../proto/posts_grpc_pb';
+import { IPostsServer } from '../proto/posts_grpc_pb';
 
 import { posts, authors } from '../data/mocks';
 
